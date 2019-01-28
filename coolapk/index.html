@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://www.coolapk.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=" utf-8"="">
+<title>酷安网首页局部展示</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="酷安网，发现应用的乐趣！快来发现新鲜的、有趣的、好玩儿的应用！在酷安网，玩转手机应用，分享应用经验，发现应用的乐趣，尽享应用的快乐！">
+    <link rel="stylesheet" href="./index_files/homepage.weui.extra.css">
+    <link rel="stylesheet" href="./index_files/weui.min.css">
+    <link rel="stylesheet" href="./index_files/animate.min.css">
+    <script src="./index_files/weui.js.下载"></script>
+</head>
+<body data-uid="1793789" data-request-app="Web" data-request-hash="8528f31epm10c4" style="margin: 0;;">
+
+<script>
+    var pathname = window.location.pathname;
+    if (pathname.indexOf('/apk/com.coolapk.market') == 0) {
+        document.getElementById('navbar-market').classList.add('header-active');
+    } else if (pathname.indexOf('/apk') == 0) {
+            document.getElementById('navbar-apk').classList.add('header-active');
+    } else if (pathname.indexOf('/game') == 0) {
+        document.getElementById('navbar-game').classList.add('header-active');
+    } else if (pathname.indexOf('/about/contact') == 0) {
+        document.getElementById('navbar-contact').classList.add('header-active');
+    } else if (pathname.indexOf('/about/about') == 0) {
+        document.getElementById('navbar-about').classList.add('header-active');
+    } else if (pathname.indexOf('/feed') == 0) {
+
+    } else {
+        document.getElementById('navbar-homepage').classList.add('header-active');
+    }
+</script>
+<div id="main">
+    <div id="first_screen" style="height: 750px;">
+        <div id="canvas-box" style="height: 750px;">
+            <canvas id="canvas" width="1366" height="750"></canvas>
+        </div>
+        <div id="main-content" style="height: 750px;">
+            <div class="text-group">
+                <div class="weui-flex logo-box">
+                    <div class="weui-flex__item">
+                        <img class="logo" src="./index_files/coolapklogo.png" alt="酷安">
+                    </div>
+                </div>
+                <div class="weui-flex">
+                    <div class="weui-flex__item">
+                        <p class="title">全新酷安V9</p>
+                        <p class="sub-title mobile-display">和你一起，发现科技新生活</p>
+                        <p class="sub-title pc-display">和你一起，<br>发现科技新生活</p>
+                    </div>
+                </div>
+                <div class="download-group">
+                    <div>
+                        <img class="qrcode" src="./index_files/image" alt="扫码下载APP">
+                    </div>
+                    <div class="button-box">
+                        <a href="https://www.coolapk.com/qr/download?type=android"><img src="./index_files/android.png" alt="立即下载"></a>
+                        <a href="https://www.coolapk.com/qr/download?type=ios"><img src="./index_files/iphone.png" alt="立即下载"></a>
+                    </div>
+                </div>
+                <div id="mobile-download-box" class="weui-flex">
+                    <div class="weui-flex__item">
+                        <div class="mobile-download-button-box">
+                            <a href="https://www.coolapk.com/qr/download"><img src="./index_files/download_now.png" alt="立即下载"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-flex image-group">
+                <div class="weui-flex__item large-image-box">
+                    <img class="large-image" src="./index_files/first_screen.png" alt="首屏">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+<script>
+    window.addEventListener("load", function () {
+        var timer = 0;
+        var innerWidth = 0;
+        var innerHeight = 0;
+        var contentHeight = document.getElementById('main-content').offsetHeight;
+        function initialize() {
+            innerWidth = window.innerWidth
+                || document.documentElement.clientWidth || document.body.clientWidth;
+            innerHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        }
+        function drawCanvas() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext("2d");
+            console.log(contentHeight);
+            if (innerWidth > 1000) {
+                if (innerHeight < contentHeight) {
+                    innerHeight = contentHeight;
+                }
+                if (contentHeight < 750) {
+                    innerHeight = 750;
+                }
+                document.getElementById('main-content').style.height = innerHeight + 'px';
+            } else {
+                if (innerHeight < document.getElementById('main-content').offsetHeight) {
+                    innerHeight = document.getElementById('main-content').offsetHeight;
+                }
+                document.getElementById('main-content').style.height = contentHeight + 'px';
+            }
+            console.log(innerHeight);
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            document.getElementById('canvas-box').style.height = innerHeight + 'px';
+            document.getElementById('first_screen').style.height = innerHeight + 'px';
+
+            ctx.lineWidth = 0;
+            ctx.strokeStyle = '#00804c';
+            ctx.beginPath();
+            ctx.moveTo(0, 0.55 * innerHeight);
+            ctx.lineTo(0.3 * innerWidth, innerHeight);
+            ctx.lineTo(0, innerHeight);
+            ctx.lineTo(0, 0,55 * innerHeight);
+            ctx.stroke();
+            ctx.fillStyle = "#00804c";
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, 0.55 * innerHeight);
+            ctx.lineTo(0.3 * innerWidth, innerHeight);
+            ctx.lineTo(0.4 * innerWidth, innerHeight);
+            ctx.lineTo(0.6 * innerWidth, 0);
+            ctx.lineTo(0, 0);
+            ctx.stroke();
+            ctx.fillStyle = "#00a667";
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(0.6 * innerWidth, 0);
+            ctx.lineTo(0.75 * innerWidth, 0);
+            ctx.lineTo(innerWidth, 0.3 * innerHeight);
+            ctx.lineTo(innerWidth, innerHeight);
+            ctx.lineTo(0.4 * innerWidth, innerHeight);
+            ctx.lineTo(0.6 * innerWidth, 0);
+            ctx.stroke();
+            ctx.fillStyle = "#00975a";
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.moveTo(0.75 * innerWidth, 0);
+            ctx.lineTo(innerWidth, 0);
+            ctx.lineTo(innerWidth, 0.3 * innerHeight);
+            ctx.lineTo(0.75 * innerWidth, 0);
+            ctx.stroke();
+            ctx.fillStyle = "#00804c";
+            ctx.fill();
+            ctx.closePath();
+        }
+        function initCanvas() {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                if (window.innerWidth != innerWidth) {
+                    document.getElementById('main-content').style.height = '';
+                    document.getElementById('canvas-box').style.height = '';
+                    document.getElementById('first_screen').style.height = '';
+                    var canvas = document.getElementById('canvas');
+                    canvas.width = 0;
+                    canvas.height = 0;
+                    timer = 0;
+                    innerWidth = 0;
+                    innerHeight = 0;
+                    contentHeight = document.getElementById('main-content').offsetHeight;
+                    initialize();
+                    drawCanvas();
+                }
+            }, 200);
+        }
+        window.addEventListener("resize", initCanvas);
+        initCanvas();
+    });
+</script>
+<script type="text/javascript">
+// stat script 1
+</script>
+
+<div style="display:none">
+<!-- stat script 2 -->
+</div>
+
+
+
+</body></html>
