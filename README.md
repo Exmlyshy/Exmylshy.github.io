@@ -4,7 +4,7 @@
 
 
 
-刷B站的时候经常能看到B站各种排行及分布，也有好几个专门监测B站的网站比如https://www.kanbilibili.com/，www.biliob.com等，这都是许多爬虫在不停地工作。
+刷B站的时候经常能看到B站各种排行及分布，也有好几个专门监测B站的网站比如 https://www.kanbilibili.com/ , www.biliob.com 等,这都是许多爬虫在不停地工作。
 
 此时我寻思着每天刷酷安的次数也不比B站少啊，然后就有了这个简单的统计。
 
