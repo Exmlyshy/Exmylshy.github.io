@@ -1,37 +1,40 @@
-## Welcome to GitHub Pages
+## 看酷安
 
-You can use the [editor on GitHub](https://github.com/Exmlyshy/Exmylshy.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+**前言：爬取的所有数据都是在用户主页公开显示的，为避免对酷安服务器造成压力，主要在夜间延时爬取**
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+刷B站的时候经常能看到B站各种排行及分布，也有好几个专门监测B站的网站比如https://www.kanbilibili.com/，www.biliob.com等，这都是许多爬虫在不停地工作。
 
-```markdown
-Syntax highlighted code block
+此时我寻思着每天刷酷安的次数也不比B站少啊，然后就有了这个简单的统计。
 
-# Header 1
-## Header 2
-### Header 3
+**爬取的原理：**
 
-- Bulleted
-- List
+​	对于酷安来说，每位用户都有一个uid，这个uid应该是随着注册时间递增的，所以粗暴的方法就是从起始uid开始遍历到最后。但是同所有社区一样，每个社区都有大量0关注0粉丝的 *僵尸号* ，爬取这样的用户是没有意义的且浪费资源的。此外，如果社区的用户id不是规律递增的或者是根据用户名确定的url（如知乎），那么此爬取方式将不可行。
 
-1. Numbered
-2. List
+​	**所以采用如下方法：**
 
-**Bold** and _Italic_ and `Code` text
+​	每一位用户都有其关注列表和粉丝列表，所以从一位酷安大V开始，获取其关注和粉丝列表，然后对列表中每一位用户执行相同的操作，然后再对相同的url进行去重防止重复爬取，但是那么理论上是可以将所有关注及粉丝非0的用户获取到的。ps:我在酷安随机抽取了一些用户查询，未发现遗漏
 
-[Link](url) and ![Image](src)
-```
+![原理](https://raw.githubusercontent.com/Exmlyshy/cool/master/coolapk/cool.gif)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+爬取的数据如下：
 
-### Jekyll Themes
+- 地区分布
+  - [省份分布](https://exmlyshy.github.io/cool/coolapk/province/)
+- 性别分布
+  - [性别分布](https://exmlyshy.github.io/cool/coolapk/gender)
+  - [性别占比随地区](https://exmlyshy.github.io/cool/coolapk/gender/gender_by_province/)
+- 等级分布及排行
+  - [等级分布](https://exmlyshy.github.io/cool/coolapk/level/)
+  - [top1-25](https://exmlyshy.github.io/cool/coolapk/level/top100/top1-25/)
+  - [top26-50](https://exmlyshy.github.io/cool/coolapk/level/top100/top26-50/)
+  - [top51-100](https://exmlyshy.github.io/cool/coolapk/level/top100/top51-100/)
+  - [top100_CSV](https://github.com/Exmlyshy/cool/blob/master/coolapk/level/top100/top100.csv)
+- 粉丝排行
+  - [粉丝排行](https://exmlyshy.github.io/cool/coolapk/fans/)
+- 开发应用数量top250
+  - [CSV](https://github.com/Exmlyshy/cool/blob/master/coolapk/developer/developer.csv)
+- 动态数top100
+  - [CSV](https://github.com/Exmlyshy/cool/blob/master/coolapk/feed/fans_top100.csv)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Exmlyshy/Exmylshy.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
