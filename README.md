@@ -36,5 +36,5 @@
 - 开发应用数量top250
   - [CSV](https://github.com/Exmlyshy/cool/blob/master/coolapk/developer/developer.csv)
 - 动态数top100
-  - [CSV](https://github.com/Exmlyshy/cool/blob/master/coolapk/feed/fans_top100.csv)
+  - [CSV](https://github.com/Exmlyshy/cool/blob/master/coolapk/feed/feed_top100.csv)
 
